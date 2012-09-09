@@ -18,8 +18,8 @@
       else if (this.timeAgo.indexOf("hour")   != -1) seperatedData.hoursAgo.push(this);
       else if (this.timeAgo.indexOf("day")    != -1) seperatedData.daysAgo.push(this);
       else if (this.timeAgo.indexOf("week")   != -1) seperatedData.weeksAgo.push(this);
-      else if (this.timeAgo.indexOf("month")  != -1) seperatedData.yearsAgo.push(this);
-      else if (this.timeAgo.indexOf("year")   != -1) seperatedData.monthsAgo.push(this);
+      else if (this.timeAgo.indexOf("month")  != -1) seperatedData.monthsAgo.push(this);
+      else if (this.timeAgo.indexOf("year")   != -1) seperatedData.yearsAgo.push(this);
     });
     
     $.each(seperatedData, function () {
