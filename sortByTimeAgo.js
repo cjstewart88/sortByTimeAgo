@@ -1,7 +1,8 @@
 var sortByTimeAgo = (function () {
   var unsortedData  = [],
       sortedData    = [],
-      separatedData = { secondsAgo: [], minutesAgo: [], hoursAgo: [], daysAgo: [], weeksAgo: [], monthsAgo: [], yearsAgo: [] };
+      separatedData = { secondsAgo: [], minutesAgo: [], hoursAgo: [], daysAgo: [], 
+                        weeksAgo: [], monthsAgo: [], yearsAgo: [] };
       
   var separateData = function () {
     var categories    = ["second", "minute", "hour", "day", "week", "month", "year"];

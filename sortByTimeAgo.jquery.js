@@ -1,7 +1,8 @@
 (function ($) {
   $.sortByTimeAgo = function (data) {
     var sortedData    = [],
-        separatedData = { secondsAgo: [], minutesAgo: [], hoursAgo: [], daysAgo: [], weeksAgo: [], monthsAgo: [], yearsAgo: [] };
+        separatedData = { secondsAgo: [], minutesAgo: [], hoursAgo: [], daysAgo: [], 
+                          weeksAgo: [], monthsAgo: [], yearsAgo: [] };
     
     $.each(data, function () {
       var peiceOfData = this;
