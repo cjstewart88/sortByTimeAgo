@@ -1,5 +1,5 @@
 # sortByTimeAgo.js
-This is a jQuery plugin that takes an array of objects 
+This is a javascript plugin that takes an array of objects 
 with `timeAgo` properties and sorts them from newest to oldest.
 
 ## Why
@@ -7,7 +7,8 @@ Mashing together two third party API responses and sorting them
 based on time can be a problem. What if 1 API returns strings 
 like "1 minute ago", "4 hours ago", etc. and the other returns 
 a timestamp which you convert to time ago. You'd have a problem. Run
-your data through `$.sortByTimeAgo()` and they're gone.
+your data through `sortByTimeAgo.init(data)` or `$.sortByTimeAgo(data)` 
+if you prefer jQuery and they're problems are gone!
 
 ## Example
     var unsortedData = [
@@ -44,7 +45,11 @@ your data through `$.sortByTimeAgo()` and they're gone.
         timeAgo:  "about 9 seconds ago"
       }
     ];
-
+    
+    // plain javascript
+    var sortedData = sortByTimeAgo(unsortedData);
+    
+    // if using jQuery
     var sortedData = $.sortByTimeAgo(unsortedData);
     
 ## Contributing
