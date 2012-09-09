@@ -3,29 +3,31 @@
     var sortedData    = [];
     
     var seperatedData = {
-      minutes: [],
-      hours:   [],
-      days:    []
+      secondsAgo: [],
+      minutesAgo: [],
+      hoursAgo:   [],
+      daysAgo:    [],
+      weeksAgo:   []
     };
     
     $.each(data, function () {
-      this.timeAgo = this.timeAgo.replace("about", "");
-      
-      if      (this.timeAgo.indexOf("minutes")  != -1) seperatedData.minutes.push(this);
-      else if (this.timeAgo.indexOf("hours")    != -1) seperatedData.hours.push(this);
-      else if (this.timeAgo.indexOf("days")     != -1) seperatedData.days.push(this);
+      if      (this.timeAgo.indexOf("second") != -1) seperatedData.secondsAgo.push(this);      
+      else if (this.timeAgo.indexOf("minute") != -1) seperatedData.minutesAgo.push(this);
+      else if (this.timeAgo.indexOf("hour")   != -1) seperatedData.hoursAgo.push(this);
+      else if (this.timeAgo.indexOf("day")    != -1) seperatedData.daysAgo.push(this);
+      else if (this.timeAgo.indexOf("week")   != -1) seperatedData.weeksAgo.push(this);
     });
     
-    $.each(seperatedData, function (key, val) {
-      seperatedData[key].sort(function (a, b) {
-        return parseInt(a.timeAgo) - parseInt(b.timeAgo);
+    $.each(seperatedData, function () {
+      this.sort(function (a, b) {
+        return parseInt(a.timeAgo.match(/\d+/)[0]) - parseInt(b.timeAgo.match(/\d+/)[0]);
       });
     });
     
-    $.each(data, function () {
-      this.timeAgo = "about " + this.timeAgo;
-    });
-    
-    return sortedData.concat(seperatedData.minutes, seperatedData.hours, seperatedData.days);
+    return sortedData.concat(seperatedData.secondsAgo, 
+                             seperatedData.minutesAgo, 
+                             seperatedData.hoursAgo, 
+                             seperatedData.daysAgo,
+                             seperatedData.weeksAgo);
   };
 })(jQuery);
